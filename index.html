@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Chatting App</title>
+    <link rel="stylesheet" href="">
+  <style>
+  body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f2f5;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    animation: fadeIn 2s ease-in;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.container {
+    background: white;
+    width: 80%;
+    max-width: 900px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    animation: slideIn 1s ease-in-out;
+}
+
+@keyframes slideIn {
+    from { transform: translateY(-100px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+header {
+    background: #6c63ff;
+    color: white;
+    text-align: center;
+    padding: 2rem 1rem;
+}
+
+header .app-icon {
+    width: 50px;
+    margin-bottom: 10px;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5rem;
+}
+
+header p {
+    font-size: 1.2rem;
+    margin: 0.5rem 0 0;
+}
+
+.content {
+    padding: 2rem;
+}
+
+.app-info, .team-info {
+    margin-bottom: 2rem;
+}
+
+.app-info h2, .team-info h2 {
+    font-size: 1.8rem;
+    color: #6c63ff;
+}
+
+.app-info p, .team-info p {
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+.team-info {
+    border-top: 1px solid #ddd;
+    padding-top: 2rem;
+}
+
+.team-member {
+    margin-bottom: 2rem;
+}
+
+.team-member h3 {
+    margin: 0;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+}
+
+.team-member p {
+    margin: 0.5rem 0;
+}
+
+footer {
+    background: #6c63ff;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+}
+
+footer p {
+    margin: 0;
+}
+
+ul {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+  </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <img src="chat-icon.png" alt="Chat App Icon" class="app-icon">
+            <h1>About Us</h1>
+            <p>Welcome to our Chatting App 😊</p>
+        </header>
+        <section class="content">
+            <div class="app-info">
+                <h2>Our Chatting App</h2>
+                <p>
+                    Our Chatting App is built with modern web technologies including Node.js, HTML, CSS, and JavaScript. 
+                    The app is designed to provide a seamless and secure messaging experience for users around the globe.
+                </p>
+                <p>
+                    Key Features:
+                    <ul>
+                        <li>💬 Real-time messaging with WebSocket integration.</li>
+                        <li>🧭 User-friendly interface for smooth navigation.</li>
+                        <li>🔒 End-to-end encryption to ensure privacy and security.</li>
+                        <li>👤 Customizable user profiles with avatars.</li>
+                        <li>👥 Group chats to connect with multiple users at once.</li>
+                        <li>🔔 Notification system to keep you updated on new messages.</li>
+                    </ul>
+                </p>
+            </div>
+            <div class="team-info">
+                <h2>The Team</h2>
+                <div class="team-member">
+                    <h3>🛠️ Silent Programmer</h3>
+                    <p>Developer</p>
+                    <p>
+                        Silent Programmer is the mastermind behind the development of our Chatting App. With extensive experience in Node.js and other web technologies, they have crafted a robust and scalable backend for the app. Silent Programmer's expertise ensures that the app runs smoothly and efficiently, providing users with a reliable chatting experience.
+                    </p>
+                </div>
+                <div class="team-member">
+                    <h3>🎨 MG Hacker</h3>
+                    <p>Designer</p>
+                    <p>
+                        MG Hacker is the creative force responsible for the modern and attractive design of our Chatting App. Their keen eye for detail and user experience ensures that the app is not only functional but also visually appealing. MG Hacker's innovative design approach makes the app intuitive and enjoyable to use.
+                    </p>
+                </div>
+            </div>
+        </section>
+        <footer>
+            <p>&copy; 2024 FLOW App. All rights reserved.</p>
+        </footer>
+    </div>
+    <script src="about.js"></script>
+</body>
+</html>

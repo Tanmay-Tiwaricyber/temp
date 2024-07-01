@@ -1,11 +1,9 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FLOW - Chatting App</title>
-    <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
         :root {
@@ -95,6 +93,19 @@
             margin-top: 2rem;
         }
 
+        .team-member-container {
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 1rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 350px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        body.dark-mode .team-member-container {
+            background-color: #444;
+        }
+
         .team-member {
             text-align: center;
         }
@@ -163,17 +174,21 @@
             </ul>
         </section>
         <section class="team">
-            <div class="team-member">
-                <img src="dev.jpeg" alt="Silent Programmer">
-                <h3>Silent Programmer</h3>
-                <span class="role">Dev</span>
-                <p>Mastermind behind the development with extensive experience in Node.js and web technologies.</p>
+            <div class="team-member-container">
+                <div class="team-member">
+                    <img src="developer.jpg" alt="Silent Programmer">
+                    <h3>Silent Programmer</h3>
+                    <span class="role">Dev</span>
+                    <p>Mastermind behind the development with extensive experience in Node.js and web technologies.</p>
+                </div>
             </div>
-            <div class="team-member">
-                <img src="designer.png" alt="MG Hacker">
-                <h3>MG Hacker</h3>
-                <span class="role">Designer</span>
-                <p>Creative force responsible for the modern and attractive design of our Chatting App.</p>
+            <div class="team-member-container">
+                <div class="team-member">
+                    <img src="designer.jpg" alt="MG Hacker">
+                    <h3>MG Hacker</h3>
+                    <span class="role">Designer</span>
+                    <p>Creative force responsible for the modern and attractive design of our Chatting App.</p>
+                </div>
             </div>
         </section>
         <footer>

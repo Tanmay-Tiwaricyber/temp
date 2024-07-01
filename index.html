@@ -3,166 +3,200 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us - Chatting App</title>
-    <link rel="stylesheet" href="">
-  <style>
-  body {
-    margin: 0;
-    font-family: 'Arial', sans-serif;
-    background-color: #f0f2f5;
-    color: #333;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    animation: fadeIn 2s ease-in;
-}
+    <title>FLOW - Chatting App</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #6c63ff;
+            --background-light: #f0f2f5;
+            --background-dark: #2e2e2e;
+            --text-light: #333;
+            --text-dark: #ccc;
+        }
 
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            transition: background-color 0.3s, color 0.3s;
+        }
 
-.container {
-    background: white;
-    width: 80%;
-    max-width: 900px;
-    border-radius: 15px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    animation: slideIn 1s ease-in-out;
-}
+        body.light-mode {
+            background-color: var(--background-light);
+            color: var(--text-light);
+        }
 
-@keyframes slideIn {
-    from { transform: translateY(-100px); opacity: 0; }
-    to { transform: translateY(0); opacity: 1; }
-}
+        body.dark-mode {
+            background-color: var(--background-dark);
+            color: var(--text-dark);
+        }
 
-header {
-    background: #6c63ff;
-    color: white;
-    text-align: center;
-    padding: 2rem 1rem;
-}
+        .container {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 2s ease-in;
+        }
 
-header .app-icon {
-    width: 50px;
-    margin-bottom: 10px;
-}
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
 
-header h1 {
-    margin: 0;
-    font-size: 2.5rem;
-}
+        header {
+            margin-bottom: 2rem;
+        }
 
-header p {
-    font-size: 1.2rem;
-    margin: 0.5rem 0 0;
-}
+        header .app-icon {
+            width: 100px;
+        }
 
-.content {
-    padding: 2rem;
-}
+        header h1 {
+            margin: 0.5rem 0;
+            font-size: 2.5rem;
+        }
 
-.app-info, .team-info {
-    margin-bottom: 2rem;
-}
+        header p {
+            font-size: 1.2rem;
+        }
 
-.app-info h2, .team-info h2 {
-    font-size: 1.8rem;
-    color: #6c63ff;
-}
+        .features {
+            margin: 2rem 0;
+        }
 
-.app-info p, .team-info p {
-    font-size: 1rem;
-    line-height: 1.5;
-}
+        .features ul {
+            list-style-type: none;
+            padding: 0;
+        }
 
-.team-info {
-    border-top: 1px solid #ddd;
-    padding-top: 2rem;
-}
+        .features li {
+            font-size: 1.2rem;
+            margin: 0.5rem 0;
+            display: flex;
+            align-items: center;
+        }
 
-.team-member {
-    margin-bottom: 2rem;
-}
+        .features li i {
+            margin-right: 10px;
+            color: var(--primary-color);
+        }
 
-.team-member h3 {
-    margin: 0;
-    font-size: 1.5rem;
-    display: flex;
-    align-items: center;
-}
+        .team {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 2rem;
+        }
 
-.team-member p {
-    margin: 0.5rem 0;
-}
+        .team-member {
+            text-align: center;
+        }
 
-footer {
-    background: #6c63ff;
-    color: white;
-    text-align: center;
-    padding: 1rem;
-}
+        .team-member img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+        }
 
-footer p {
-    margin: 0;
-}
+        .team-member h3 {
+            margin: 0;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
 
-ul {
-    list-style-type: disc;
-    padding-left: 20px;
-}
-  </style>
+        .team-member .role {
+            background: var(--primary-color);
+            color: white;
+            border-radius: 10px;
+            padding: 2px 10px;
+            margin-left: 10px;
+            font-size: 0.8rem;
+        }
+
+        .toggle-switch {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            font-size: 1.2rem;
+        }
+
+        .toggle-switch i {
+            margin-left: 10px;
+        }
+
+        footer {
+            margin-top: 2rem;
+            padding: 1rem 0;
+            background: var(--primary-color);
+            color: white;
+            border-radius: 0 0 15px 15px;
+        }
+    </style>
 </head>
-<body>
+<body class="light-mode">
     <div class="container">
         <header>
             <img src="chat-icon.png" alt="Chat App Icon" class="app-icon">
-            <h1>About Us</h1>
-            <p>Welcome to our Chatting App 😊</p>
+            <h1>FLOW</h1>
+            <p>Welcome to FLOW Chatting App 😊</p>
         </header>
-        <section class="content">
-            <div class="app-info">
-                <h2>Our Chatting App</h2>
-                <p>
-                    Our Chatting App is built with modern web technologies including Node.js, HTML, CSS, and JavaScript. 
-                    The app is designed to provide a seamless and secure messaging experience for users around the globe.
-                </p>
-                <p>
-                    Key Features:
-                    <ul>
-                        <li>💬 Real-time messaging with WebSocket integration.</li>
-                        <li>🧭 User-friendly interface for smooth navigation.</li>
-                        <li>🔒 End-to-end encryption to ensure privacy and security.</li>
-                        <li>👤 Customizable user profiles with avatars.</li>
-                        <li>👥 Group chats to connect with multiple users at once.</li>
-                        <li>🔔 Notification system to keep you updated on new messages.</li>
-                    </ul>
-                </p>
+        <section class="features">
+            <h2>Key Features</h2>
+            <ul>
+                <li><i class="fas fa-comments"></i> Real-time messaging with WebSocket integration.</li>
+                <li><i class="fas fa-user-friends"></i> User-friendly interface for smooth navigation.</li>
+                <li><i class="fas fa-lock"></i> End-to-end encryption to ensure privacy and security.</li>
+                <li><i class="fas fa-user"></i> Customizable user profiles with avatars.</li>
+                <li><i class="fas fa-users"></i> Group chats to connect with multiple users at once.</li>
+                <li><i class="fas fa-bell"></i> Notification system to keep you updated on new messages.</li>
+            </ul>
+        </section>
+        <section class="team">
+            <div class="team-member">
+                <img src="developer.jpg" alt="Silent Programmer">
+                <h3>Silent Programmer <span class="role">Dev</span></h3>
+                <p>Mastermind behind the development with extensive experience in Node.js and web technologies.</p>
             </div>
-            <div class="team-info">
-                <h2>The Team</h2>
-                <div class="team-member">
-                    <h3>🛠️ Silent Programmer</h3>
-                    <p>Developer</p>
-                    <p>
-                        Silent Programmer is the mastermind behind the development of our Chatting App. With extensive experience in Node.js and other web technologies, they have crafted a robust and scalable backend for the app. Silent Programmer's expertise ensures that the app runs smoothly and efficiently, providing users with a reliable chatting experience.
-                    </p>
-                </div>
-                <div class="team-member">
-                    <h3>🎨 MG Hacker</h3>
-                    <p>Designer</p>
-                    <p>
-                        MG Hacker is the creative force responsible for the modern and attractive design of our Chatting App. Their keen eye for detail and user experience ensures that the app is not only functional but also visually appealing. MG Hacker's innovative design approach makes the app intuitive and enjoyable to use.
-                    </p>
-                </div>
+            <div class="team-member">
+                <img src="designer.jpg" alt="MG Hacker">
+                <h3>MG Hacker <span class="role">Designer</span></h3>
+                <p>Creative force responsible for the modern and attractive design of our Chatting App.</p>
             </div>
         </section>
         <footer>
             <p>&copy; 2024 FLOW App. All rights reserved.</p>
         </footer>
     </div>
-    <script src="about.js"></script>
+    <div class="toggle-switch" onclick="toggleMode()">
+        <span>Light Mode</span>
+        <i class="fas fa-sun"></i>
+    </div>
+    <script>
+        function toggleMode() {
+            const body = document.body;
+            const toggleSwitch = document.querySelector('.toggle-switch');
+            if (body.classList.contains('light-mode')) {
+                body.classList.remove('light-mode');
+                body.classList.add('dark-mode');
+                toggleSwitch.innerHTML = '<span>Dark Mode</span><i class="fas fa-moon"></i>';
+            } else {
+                body.classList.remove('dark-mode');
+                body.classList.add('light-mode');
+                toggleSwitch.innerHTML = '<span>Light Mode</span><i class="fas fa-sun"></i>';
+            }
+        }
+    </script>
 </body>
 </html>

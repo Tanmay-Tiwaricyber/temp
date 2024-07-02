@@ -9,24 +9,24 @@
         :root {
             --primary-color: #6c63ff;
             --background-light: #f0f2f5;
-            --background-dark: #2e2e2e;
+            --background-dark: #18191a;
             --text-light: #333;
             --text-dark: #ccc;
+            --header-bg: #ffffff;
+            --footer-bg: #ffffff;
+            --card-bg-light: #ffffff;
+            --card-bg-dark: #242526;
         }
 
         body {
             margin: 0;
             font-family: 'Arial', sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            transition: background-color 0.3s, color 0.3s;
-        }
-
-        body.light-mode {
             background-color: var(--background-light);
             color: var(--text-light);
+            transition: background-color 0.3s, color 0.3s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         body.dark-mode {
@@ -35,79 +35,106 @@
         }
 
         .container {
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto;
+            width: 100%;
+            max-width: 1200px;
             padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            animation: fadeIn 2s ease-in;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
         }
 
         header {
+            width: 100%;
+            background-color: var(--header-bg);
+            padding: 1rem 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            text-align: center;
             margin-bottom: 2rem;
+            transition: background-color 0.3s;
+        }
+
+        body.dark-mode header {
+            background-color: var(--card-bg-dark);
         }
 
         header .app-icon {
-            width: 100px;
+            width: 80px;
         }
 
         header h1 {
             margin: 0.5rem 0;
-            font-size: 2.5rem;
+            font-size: 2.2rem;
         }
 
         header p {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
         }
 
         .features {
-            margin: 2rem 0;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .features h2 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
         }
 
         .features ul {
-            list-style-type: none;
+            list-style: none;
             padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
         }
 
         .features li {
-            font-size: 1.2rem;
-            margin: 0.5rem 0;
+            width: 45%;
+            background-color: var(--card-bg-light);
+            margin: 0.5rem;
+            padding: 1rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             display: flex;
             align-items: center;
+            transition: background-color 0.3s;
+        }
+
+        body.dark-mode .features li {
+            background-color: var(--card-bg-dark);
         }
 
         .features li i {
             margin-right: 10px;
             color: var(--primary-color);
+            font-size: 1.5rem;
         }
 
         .team {
+            text-align: center;
+        }
+
+        .team h2 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .team-members {
             display: flex;
-            justify-content: space-around;
-            margin-top: 2rem;
+            flex-wrap: wrap;
+            justify-content: center;
         }
 
         .team-member-container {
-            background-color: #fff;
+            background-color: var(--card-bg-light);
             border-radius: 10px;
-            padding: 1rem;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 1.5rem;
+            margin: 0.5rem;
             max-width: 350px;
-            transition: background-color 0.3s, color 0.3s;
+            width: 100%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s;
         }
 
         body.dark-mode .team-member-container {
-            background-color: #444;
-        }
-
-        .team-member {
-            text-align: center;
+            background-color: var(--card-bg-dark);
         }
 
         .team-member img {
@@ -118,8 +145,8 @@
         }
 
         .team-member h3 {
-            margin: 0;
-            font-size: 1.5rem;
+            margin: 0.5rem 0;
+            font-size: 1.4rem;
         }
 
         .role {
@@ -127,13 +154,27 @@
             color: white;
             border-radius: 10px;
             padding: 5px 10px;
-            font-size: 0.8rem;
+            font-size: 0.9rem;
             margin-top: 5px;
             display: inline-block;
         }
 
+        footer {
+            width: 100%;
+            padding: 1rem 0;
+            background: var(--footer-bg);
+            text-align: center;
+            box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+            margin-top: 2rem;
+            transition: background-color 0.3s;
+        }
+
+        body.dark-mode footer {
+            background-color: var(--card-bg-dark);
+        }
+
         .toggle-switch {
-            position: absolute;
+            position: fixed;
             top: 20px;
             right: 20px;
             cursor: pointer;
@@ -146,22 +187,24 @@
             margin-left: 10px;
         }
 
-        footer {
-            margin-top: 2rem;
-            padding: 1rem 0;
-            background: var(--primary-color);
-            color: white;
-            border-radius: 0 0 15px 15px;
+        .toggle-switch span {
+            display: none;
+        }
+
+        @media (min-width: 600px) {
+            .toggle-switch span {
+                display: inline;
+            }
         }
     </style>
 </head>
 <body class="light-mode">
+    <header>
+        <img src="chat-icon.png" alt="Chat App Icon" class="app-icon">
+        <h1>FLOW</h1>
+        <p>Welcome to FLOW Chatting App 😊</p>
+    </header>
     <div class="container">
-        <header>
-            <img src="chat-icon.png" alt="Chat App Icon" class="app-icon">
-            <h1>FLOW</h1>
-            <p>Welcome to FLOW Chatting App 😊</p>
-        </header>
         <section class="features">
             <h2>Key Features</h2>
             <ul>
@@ -171,30 +214,36 @@
                 <li><i class="fas fa-user"></i> Customizable user profiles with avatars.</li>
                 <li><i class="fas fa-users"></i> Group chats to connect with multiple users at once.</li>
                 <li><i class="fas fa-bell"></i> Notification system to keep you updated on new messages.</li>
+                <li><i class="fas fa-at"></i> Mention users to grab their attention.</li>
+                <li><i class="fas fa-file-upload"></i> File sharing capabilities.</li>
+                <li><i class="fas fa-smile"></i> Emoji support for expressive conversations.</li>
             </ul>
         </section>
         <section class="team">
-            <div class="team-member-container">
-                <div class="team-member">
-                    <img src="dev.jpeg" alt="Silent Programmer">
-                    <h3>Silent Programmer</h3>
-                    <span class="role">Dev</span>
-                    <p>Mastermind behind the development with extensive experience in Node.js and web technologies.</p>
+            <h2>Meet the Team</h2>
+            <div class="team-members">
+                <div class="team-member-container">
+                    <div class="team-member">
+                        <img src="dev.jpg" alt="Silent Programmer">
+                        <h3>Silent Programmer</h3>
+                        <span class="role">Dev</span>
+                        <p>Mastermind behind the development with extensive experience in Node.js and web technologies.</p>
+                    </div>
                 </div>
-            </div>
-            <div class="team-member-container">
-                <div class="team-member">
-                    <img src="des.jpg" alt="MG Hacker">
-                    <h3>MG Hacker</h3>
-                    <span class="role">Designer</span>
-                    <p>Creative force responsible for the modern and attractive design of our Chatting App.</p>
+                <div class="team-member-container">
+                    <div class="team-member">
+                        <img src="des.jpg" alt="MG Hacker">
+                        <h3>MG Hacker</h3>
+                        <span class="role">Designer</span>
+                        <p>Creative force responsible for the modern and attractive design of our Chatting App.</p>
+                    </div>
                 </div>
             </div>
         </section>
-        <footer>
-            <p>&copy; 2024 FLOW App. All rights reserved.</p>
-        </footer>
     </div>
+    <footer>
+        <p>&copy; 2024 FLOW App. All rights reserved.</p>
+    </footer>
     <div class="toggle-switch" onclick="toggleMode()">
         <span>Light Mode</span>
         <i class="fas fa-sun"></i>

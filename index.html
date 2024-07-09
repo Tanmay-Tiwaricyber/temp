@@ -16,6 +16,7 @@
             --card-bg-light: #ffffff;
             --card-bg-dark: #161b22;
             --gradient: linear-gradient(45deg, #00b4d8, #90e0ef);
+            --shadow-color: rgba(0, 0, 0, 0.3);
         }
 
         body {
@@ -70,6 +71,7 @@
             width: 100px;
             animation: float 2s ease-in-out infinite;
             z-index: 1;
+            transform: translateZ(50px); /* Added 3D transform */
         }
 
         header h1 {
@@ -89,20 +91,21 @@
             z-index: 1;
         }
 
-        .features, .team {
+        .features, .team, .app-preview {
             background-color: var(--card-bg-light);
             padding: 2rem;
             border-radius: 16px;
             margin: 2rem 0;
-            box-shadow: 0 1px 3px rgba(27,31,35,.12), 0 8px 24px rgba(27,31,35,.12);
+            box-shadow: 0 10px 20px var(--shadow-color); /* Added 3D shadow */
             transition: background-color 0.3s, color 0.3s, transform 0.3s;
+            transform-style: preserve-3d; /* Enable 3D transforms */
         }
 
-        body.dark-mode .features, body.dark-mode .team {
+        body.dark-mode .features, body.dark-mode .team, body.dark-mode .app-preview {
             background-color: var(--card-bg-dark);
         }
 
-        .features h2, .team h2 {
+        .features h2, .team h2, .app-preview h2 {
             margin-bottom: 1rem;
             font-size: 2.5rem;
             font-weight: 700;
@@ -121,12 +124,13 @@
             padding: 1rem;
             border-radius: 10px;
             transition: background-color 0.3s, transform 0.3s;
+            transform: translateZ(20px); /* Added 3D transform */
         }
 
         .features li:hover {
             background-color: var(--primary-color);
             color: white;
-            transform: scale(1.05);
+            transform: scale(1.05) translateZ(30px); /* Enhanced 3D effect on hover */
         }
 
         .features li i {
@@ -149,13 +153,14 @@
             width: 45%;
             padding: 1rem;
             border-radius: 16px;
-            box-shadow: 0 1px 3px rgba(27,31,35,.12), 0 8px 24px rgba(27,31,35,.12);
+            box-shadow: 0 10px 20px var(--shadow-color); /* Added 3D shadow */
             transition: background-color 0.3s, transform 0.3s;
             margin: 1rem 0;
+            transform-style: preserve-3d; /* Enable 3D transforms */
         }
 
         .team-member-container:hover {
-            transform: translateY(-5px);
+            transform: translateY(-5px) translateZ(30px); /* Enhanced 3D effect on hover */
         }
 
         .team-member {
@@ -168,10 +173,11 @@
             border-radius: 50%;
             margin-bottom: 10px;
             transition: transform 0.3s;
+            transform-style: preserve-3d; /* Enable 3D transforms */
         }
 
         .team-member:hover img {
-            transform: scale(1.1);
+            transform: scale(1.1) translateZ(20px); /* Enhanced 3D effect on hover */
         }
 
         .team-member h3 {
@@ -189,6 +195,38 @@
             display: inline-block;
         }
 
+        .app-preview {
+            margin: 2rem 0;
+            padding: 2rem;
+            border-radius: 16px;
+            background-color: var(--card-bg-light);
+            box-shadow: 0 10px 20px var(--shadow-color); /* Added 3D shadow */
+            transition: background-color 0.3s;
+            transform-style: preserve-3d; /* Enable 3D transforms */
+        }
+
+        body.dark-mode .app-preview {
+            background-color: var(--card-bg-dark);
+        }
+
+        .app-preview h2 {
+            margin-bottom: 1rem;
+            font-size: 2.5rem;
+            font-weight: 700;
+        }
+
+        .app-preview img {
+            max-width: 100%;
+            border-radius: 16px;
+            box-shadow: 0 10px 20px var(--shadow-color); /* Added 3D shadow */
+            transition: transform 0.3s;
+            transform-style: preserve-3d; /* Enable 3D transforms */
+        }
+
+        .app-preview img:hover {
+            transform: scale(1.05) translateZ(20px); /* Enhanced 3D effect on hover */
+        }
+
         .toggle-switch {
             position: fixed;
             top: 20px;
@@ -201,12 +239,13 @@
             padding: 10px;
             border-radius: 20px;
             color: white;
-            box-shadow: 0 1px 3px rgba(27,31,35,.12), 0 8px 24px rgba(27,31,35,.12);
+            box-shadow: 0 10px 20px var(--shadow-color); /* Added 3D shadow */
             transition: transform 0.3s;
+            transform-style: preserve-3d; /* Enable 3D transforms */
         }
 
         .toggle-switch:hover {
-            transform: scale(1.1);
+            transform: scale(1.1) translateZ(10px); /* Enhanced 3D effect on hover */
         }
 
         .toggle-switch i {
@@ -226,6 +265,16 @@
         body.dark-mode footer {
             background: var(--background-dark);
             color: var(--text-dark);
+        }
+
+        .website-counter {
+            font-size: 1rem;
+            margin-top: 1rem;
+            color: var(--primary-color);
+        }
+
+        body.dark-mode .website-counter {
+            color: var(--accent-color);
         }
 
         @media (max-width: 768px) {
@@ -297,7 +346,8 @@
                 <li><i class="fas fa-at"></i> Mention users to grab their attention.</li>
                 <li><i class="fas fa-file-upload"></i> File sharing capabilities.</li>
                 <li><i class="fas fa-smile"></i> Emoji support for expressive conversations.</li>
-                <li><i class="fas fa-user"></i> Private message also available.</li>
+                <li><i class="fas fa-star"></i> GIF support for expressive conversations.</li>
+                <li><i class="fas fa-user"></i> Private message also support.</li>
             </ul>
         </section>
         <section class="team">
@@ -321,6 +371,7 @@
     </div>
     <footer>
         <p>&copy; 2024 FLOW App. All rights reserved.</p>
+        <div class="website-counter">Visitors: <span id="visitor-count">0</span></div>
     </footer>
     <div class="toggle-switch" onclick="toggleMode()">
         <span>Light Mode</span>
@@ -338,6 +389,18 @@
                 toggleSwitch.innerHTML = '<span>Dark Mode</span><i class="fas fa-moon"></i>';
             }
         }
+
+        function updateVisitorCount() {
+            const visitorCountElement = document.getElementById('visitor-count');
+            let visitorCount = localStorage.getItem('visitorCount') || 0;
+            visitorCount++;
+            localStorage.setItem('visitorCount', visitorCount);
+            visitorCountElement.textContent = visitorCount;
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            updateVisitorCount();
+        });
     </script>
 </body>
 </html>
